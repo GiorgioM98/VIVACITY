@@ -1,7 +1,7 @@
 ## Panoramica
 
 L'applicazione (in partnership con NTT DATA) si concentra sullo sviluppo urbano e si integra con la piattaforma GoRest per fornire funzionalità di gestione degli utenti, post e commenti.
-
+E' possibile visionarla direttamente online al seguente link: ("https://infotorino-8f06a.firebaseapp.com/registrazione")
 
 ## Login e Registrazione
 

@@ -1,0 +1,11 @@
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 500px;
+}
+
+mat-spinner {
+  color: green;
+  width: 100px; /* Imposta la larghezza dello spinner */
+  height: 100px; /* Imposta l'altezza dello spinner */
+}

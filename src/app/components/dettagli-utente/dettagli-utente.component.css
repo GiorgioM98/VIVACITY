@@ -1,0 +1,59 @@
+.container {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.containerBtnClose {
+  display: flex;
+  justify-content: end;
+}
+
+.btnClose {
+  cursor: pointer;
+}
+
+.example-card {
+  width: 80%;
+  margin: auto;
+}
+
+mat-card-title {
+  margin-bottom: 1em !important;
+}
+
+mat-card-subtitle {
+  margin-bottom: 0.5em !important;
+}
+
+.example-full-width {
+  width: 100%;
+  margin-top: 1.5em;
+}
+
+.containerCard {
+  width: 50%;
+  margin: auto;
+  margin-top: 1.5em;
+}
+
+.btnVisualizzaCommenti {
+  background-color: yellow;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+  transition: transform 0.3s ease-in-out;
+  width: 80%;
+  margin: auto;
+}
+
+.btnVisualizzaCommenti:hover {
+  transform: scale(1.1);
+}
+
+.line {
+  border-bottom: 1px solid black;
+}
+
+.noPosts {
+  text-align: center;
+  margin-top: 20px;
+}

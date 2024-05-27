@@ -1,0 +1,75 @@
+<div class="container">
+  <!-- bottone aggiungi utente -->
+  <div class="utente">
+    <button mat-flat-button id="bottoneAggiungi" (click)="apriCreaUtente()">AGGIUNGI UTENTE</button>
+  </div>
+
+  <!-- input ricerca -->
+  <mat-form-field class="example-form">
+    <mat-label>Cerca</mat-label>
+    <input type="search" matInput [(ngModel)]="searchQuery" (input)="filtroUtenti()">
+    <button matSuffix mat-icon-button type="submit" (click)="filtroUtenti()">
+      <mat-icon matSuffix aria-label="Example icon-button with search icon">search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <!-- opzioni ricerca -->
+  <div class="bottoneOpzione">
+    <h2>Ricerca per:</h2>
+    <button class="bottoneNome" mat-flat-button color="primary" (click)="impostaTipoRicerca('name')"
+      [ngClass]="{'selected': bottoneNomeSelezionato}">Nome</button>
+    <button class="bottoneEmail" mat-flat-button color="primary" (click)="impostaTipoRicerca('email')"
+      [ngClass]="{'selected': bottoneEmailSelezionato}">E-mail</button>
+  </div>
+</div>
+
+<!-- sezione utenti -->
+<div class="containerUtenti">
+  <h1 class="titoloLista">ELENCO UTENTI</h1>
+  <div class="divCard" *ngFor="let utente of utentiFiltrati | keyvalue">
+    <!-- card utente -->
+    <mat-card class="card">
+      <mat-card-header>
+        <!-- avatar utente in base al status -->
+        <div class="avatar" mat-card-avatar *ngIf="utente.value.status === 'active'">
+          <img src="../../../assets/online.png" alt="Online">
+        </div>
+        <div class="avatar" mat-card-avatar *ngIf="utente.value.status === 'inactive'">
+          <img src="../../../assets/offline.png" alt="Offline">
+        </div>
+        <!-- dettagli utente -->
+        <mat-card-title>{{ utente.value.name }}</mat-card-title>
+        <mat-card-subtitle>
+          {{ utente.value.email }} <br> <br>
+          Gender: {{ utente.value.gender ? utente.value.gender.toUpperCase() : '' }} <br>
+          Status: {{ utente.value.status ? utente.value.status.toUpperCase() : '' }}
+        </mat-card-subtitle>
+        <span class="spacer"></span>
+        <div class="btn">
+          <!-- bottone dettagli -->
+          <button mat-flat-button class="bottoneDettagli" (click)="apriDettagliUtente(utente.value)">Dettagli</button>
+          <!-- bottone elimina -->
+          <button class="bottoneElimina" mat-icon-button aria-label="Example icon-button with share icon"
+            (click)="eliminaUtente(utente.value.id)">
+            <mat-icon matSuffix class="example-icon" aria-label="Example icon-button with share icon">delete</mat-icon>
+          </button>
+        </div>
+      </mat-card-header>
+    </mat-card>
+  </div>
+
+  <!-- paginazione -->
+  <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+    [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize" [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+</div>
+
+
+
+<!-- footer -->
+<div class="footer">
+  <h3>Developed by GM (Giorgio Marian) 2024</h3>
+  <h4>Profilo LinkedIn <a href="https://www.linkedin.com/in/giorgio-marian" target="_blank">qui</a></h4>
+</div>

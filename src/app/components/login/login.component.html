@@ -1,0 +1,47 @@
+<!-- dashboard -->
+<mat-toolbar class="toolbar">
+  <img class="logo" src="../../../assets/building-svgrepo-com.svg" alt="">
+  <span class="scrittaLogo">VIVACITY</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button (click)="onNavigate()" class="example-icon"
+    aria-label="Example icon-button with subscribe icon">
+    <mat-icon><span class="material-symbols-outlined">
+        subscriptions
+      </span></mat-icon>
+  </button>
+</mat-toolbar>
+
+
+
+<h1 class="form"><strong>SIGN-IN</strong></h1>
+
+<!-- form login -->
+<form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>EMAIL</mat-label>
+    <input matInput type="email" name="email" formControlName="email">
+    <!-- errore nel caso in cui l'email non sia valida o il form sia stato toccato -->
+    <p *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched">Inserisci email</p>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>PASSWORD</mat-label>
+    <input matInput type="password" name="password" formControlName="password">
+    <!-- errore nel caso in cui la password non sia valida o il form sia stato toccato -->
+    <p *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">Inserisci la password</p>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>TOKEN</mat-label>
+    <input matInput type="password" name="auth_token" formControlName="auth_token">
+    <!-- errore nel caso in cui il token non sia valida o il form sia stato toccato -->
+    <p *ngIf="!loginForm.get('auth_token')?.valid && loginForm.get('auth_token')?.touched">Inserisci il token</p>
+  </mat-form-field>
+  <button mat-flat-button class="btn" type="submit">INVIA</button>
+  <h4 class="registrati">Non sei ancora registrato? <a routerLink="/registrazione">Registrati</a></h4>
+</form>
+
+<!-- footer -->
+<div class="footer">
+  <h3 class="nome">Developed by GM (Giorgio Marian) 2024</h3>
+  <h4 class="linkedin">Profilo LinkedIn <a href="https://www.linkedin.com/in/giorgio-marian" target="_blank">qui</a>
+  </h4>
+</div>

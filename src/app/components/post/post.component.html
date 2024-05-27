@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="post">
+    <button mat-flat-button id="bottoneAggiungiPost" (click)="apriCreaPost()">AGGIUNGI POST</button>
+  </div>
+  <!-- input ricerca -->
+  <mat-form-field class="example-form inputSearch">
+    <mat-label>Cerca</mat-label>
+    <input type="search" matInput [(ngModel)]="searchQuery" (input)="filtroPosts()">
+    <button matSuffix mat-icon-button type="submit" (click)="filtroPosts()">
+      <mat-icon matSuffix class="example-icon" aria-label="Example icon-button with search icon">search</mat-icon>
+    </button>
+  </mat-form-field>
+  <!-- opzioni ricerca -->
+  <div class="bottoneOpzione">
+    <h2>Ricerca per:</h2>
+    <button class="bottoneTitolo" mat-flat-button color="primary" (click)="impostaTipoRicerca('title')"
+      [ngClass]="{'selected': bottoneTitoloSelezionato}">Titolo</button>
+    <button class="bottoneTesto" mat-flat-button color="primary" (click)="impostaTipoRicerca('body')"
+      [ngClass]="{'selected': bottoneTestoSelezionato}">Testo</button>
+  </div>
+</div>
+
+
+<!-- sezione posts -->
+<div class="containerPosts">
+  <h1 class="titoloLista">ELENCO POST</h1>
+  <div class="divCard" *ngFor="let post of postsFiltrati">
+    <!-- card post -->
+    <mat-card class=" card">
+      <mat-card-header>
+        <mat-card-title> {{post.title}} </mat-card-title>
+        <mat-card-subtitle>User Id: {{post.user_id}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{post.body}}</p>
+      </mat-card-content>
+
+      <!-- bottone visualizza commenti -->
+      <button class="btnVisualizzaCommenti" mat-flat-button (click)="caricaCommentiPost(post.id)">Visualizza
+        commenti</button>
+
+      <!-- sezione commenti -->
+      <div *ngIf="commenti[post.id]">
+        <div *ngIf="commenti[post.id].length > 0; else noComments">
+          <div *ngFor="let commento of commenti[post.id]">
+            <strong>{{commento.name}}:</strong>
+            <br>
+            {{commento.body}}
+            <p class="line"></p>
+          </div>
+        </div>
+        <!-- no comments -->
+        <ng-template #noComments>
+          <p class="noComments">Nessun commento disponibile!</p>
+        </ng-template>
+      </div>
+
+      <!-- input commento -->
+      <form class="form" #commentoForm="ngForm" (ngSubmit)="onSubmit(post.id, commentoForm)">
+        <mat-form-field class="example-full-width">
+          <mat-label>Inserisci un commento</mat-label>
+          <input type="text" matInput name="commento" ngModel>
+          <button matSuffix mat-icon-button type="submit">
+            <mat-icon aria-label="Example icon-button with send icon">send</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </mat-card>
+  </div>
+
+  <!-- paginazione -->
+  <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+    [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize" [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+</div>
+
+<!-- footer -->
+<div class="footer">
+  <h3>Developed by GM (Giorgio Marian) 2024</h3>
+  <h4>Profilo LinkedIn <a href="https://www.linkedin.com/in/giorgio-marian" target="_blank">qui</a></h4>
+</div>

@@ -1,0 +1,106 @@
+/* effetto typescript digitare il testo */
+.scrittaLogo {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 0.15em solid #009900;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end 3.5s;
+}
+
+/* effeto typescript */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40%;
+  }
+}
+
+.toolbar {
+  background-color: #009900 !important;
+  color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-container {
+  margin-top: -10px !important;
+  width: auto;
+  height: 100%;
+  margin: 10px;
+  background: #eee;
+}
+
+.icon-dashboard {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon-dashboard span {
+  position: absolute;
+  left: 0.5em;
+  bottom: 0.5em;
+  cursor: pointer;
+}
+
+.icon-dashboard {
+  cursor: pointer !important;
+}
+
+.icon-dashboard:hover {
+  background-color: rgb(194, 194, 194) !important;
+}
+
+.icon-dashboard .active {
+  background-color: rgb(194, 194, 194) !important;
+}
+
+a mat-icon {
+  color: #009900 !important;
+  margin-right: 10px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  margin-left: 20px;
+  border-radius: 50%;
+  transition: box-shadow 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  box-shadow: 0 0 20px #ffffff;
+  transform: scale(1.1);
+}
+
+.scrittaLogo {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  cursor: pointer;
+  transition: box-shadow 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.scrittaLogo:hover {
+  box-shadow: 0 0 20px #ffffff;
+  transform: scale(1.1);
+}
+
+.logout {
+  cursor: pointer;
+  transition: box-shadow 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logout:hover {
+  box-shadow: 0 0 20px #ffffff;
+  transform: scale(1.1);
+}

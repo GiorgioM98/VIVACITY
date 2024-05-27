@@ -1,0 +1,44 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+  margin: auto;
+  width: 50%;
+}
+
+.containerBtnClose {
+  display: flex;
+  justify-content: end;
+}
+
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #014421;
+  border: 3px solid #014421;
+  font-size: 30px;
+  padding: 1%;
+  border-radius: 10px;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+}
+p {
+  color: red;
+  font-size: 10px;
+}
+
+.btnClose {
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #014421 !important;
+  color: white !important;
+  margin-top: 1em;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}

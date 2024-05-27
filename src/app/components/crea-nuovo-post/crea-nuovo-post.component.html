@@ -1,0 +1,21 @@
+<h1 class="form"><strong>CREA UN NUOVO POST</strong></h1>
+
+<!--form crea post -->
+<form class="form" [formGroup]="creaNuovoPostForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>TITOLO</mat-label>
+    <input matInput type="text" name="title" formControlName="title">
+    <p *ngIf="!creaNuovoPostForm.get('title')?.valid && creaNuovoPostForm.get('title')?.touched">Inserisci un titolo</p>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>POST</mat-label>
+    <textarea textarea matInput name="body" formControlName="body"> </textarea>
+    <p *ngIf="!creaNuovoPostForm.get('body')?.valid && creaNuovoPostForm.get('body')?.touched">Inserisci un testo</p>
+  </mat-form-field>
+
+  <button mat-flat-button class="btn" type="submit" [disabled]="!creaNuovoPostForm.valid">INVIA</button>
+</form>
+
+<div class="containerBtnClose" mat-dialog-actions>
+  <button class="btnClose" mat-button (click)="chiudi()">Chiudi</button>
+</div>

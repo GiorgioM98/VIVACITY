@@ -1,0 +1,47 @@
+<h1 class="form"><strong>CREA UN NUOVO UTENTE</strong></h1>
+
+
+<!--form crea utente -->
+<form class="form" [formGroup]="creaNuovoUtenteForm" (ngSubmit)="onSubmit()">
+  <!-- nome cognome -->
+  <mat-form-field appearance="fill">
+    <mat-label>NOME COGNOME</mat-label>
+    <input matInput type="text" name="name" formControlName="name">
+    <p *ngIf="!creaNuovoUtenteForm.get('name')?.valid && creaNuovoUtenteForm.get('name')?.touched">Inserisci nome e
+      cognome!</p>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <!-- genere -->
+    <mat-label>SELEZIONA GENERE</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+    </mat-select>
+    <p *ngIf="!creaNuovoUtenteForm.get('gender')?.valid && creaNuovoUtenteForm.get('gender')?.touched">Seleziona il
+      genere!</p>
+  </mat-form-field>
+  <!-- email -->
+  <mat-form-field appearance="fill">
+    <mat-label>EMAIL</mat-label>
+    <input matInput type="email" name="email" formControlName="email">
+    <p *ngIf="!creaNuovoUtenteForm.get('email')?.valid && creaNuovoUtenteForm.get('email')?.touched">Inserisci un
+      e-mail!</p>
+  </mat-form-field>
+  <mat-form-field>
+    <!-- stato -->
+    <mat-label>SELEZIONA STATO</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="active">Active</mat-option>
+      <mat-option value="inactive">Inactive</mat-option>
+    </mat-select>
+    <p *ngIf="!creaNuovoUtenteForm.get('status')?.valid && creaNuovoUtenteForm.get('status')?.touched">Seleziona lo
+      stato!</p>
+  </mat-form-field>
+  <!-- bottne invia -->
+  <button mat-flat-button class="btn" type="submit" [disabled]="!creaNuovoUtenteForm.valid">INVIA</button>
+</form>
+
+<!-- bottone chiusura della finestra -->
+<div class="containerBtnClose" mat-dialog-actions>
+  <button class="btnClose" mat-button (click)="chiudi()">Chiudi</button>
+</div>

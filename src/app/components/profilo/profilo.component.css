@@ -1,0 +1,98 @@
+.containerCard {
+  display: grid;
+  place-items: center;
+  margin-top: 1em;
+}
+
+.cardProfilo {
+  max-width: 300px;
+  border: 3px solid #39ff14;
+  word-wrap: break-word;
+}
+
+.containerPosts {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.divCard {
+  width: 100%;
+}
+
+.cardPosts {
+  margin: auto;
+  width: 80%;
+  margin-top: 1em;
+  word-wrap: break-word;
+}
+
+.example-header-image-man {
+  background-image: url("https://st4.depositphotos.com/9998432/22597/v/450/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg");
+  background-size: cover;
+  border: 3px solid #39ff14;
+}
+
+.example-header-image-woman {
+  background-image: url("https://st4.depositphotos.com/9998432/22597/v/450/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg");
+  background-size: cover;
+  border: 3px solid #39ff14;
+}
+
+img {
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+.btnVisualizzaCommenti {
+  background-color: yellow !important;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+  transition: transform 0.3s ease-in-out;
+  width: 50%;
+  margin: auto;
+}
+
+.btnVisualizzaCommenti:hover {
+  transform: scale(1.1);
+}
+
+.example-width {
+  width: 100%;
+}
+
+.form {
+  width: 70%;
+  margin: auto;
+}
+
+.titoloLista {
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  text-decoration: underline;
+}
+
+.noComments {
+  margin-left: 1em;
+}
+
+.footer {
+  margin-top: 1em;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: #009900;
+}
+
+h3 {
+  padding-top: 1em;
+}
+
+h4 {
+  padding-bottom: 1em;
+}

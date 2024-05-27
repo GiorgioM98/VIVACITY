@@ -1,0 +1,48 @@
+<!-- dashboard  -->
+<p>
+  <!-- logo -->
+  <mat-toolbar class="toolbar">
+    <img routerLink="home" class="logo" src="../../../assets/building-svgrepo-com.svg" alt="">
+    <span class="scrittaLogo" routerLink="home">VIVACITY</span>
+    <span class="example-spacer"></span>
+    <!-- logoout -->
+    <button mat-icon-button class="logout" aria-label="Example icon-button with share icon" (click)="onLogout()">
+      <mat-icon><span class="material-symbols-outlined"> logout </span></mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+
+
+<!-- sidenav -->
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+
+    <mat-list role="list">
+      <div class="icon-dashboard">
+        <!-- navigazione verso le altre pagine -->
+        <a mat-list-item role="listitem" routerLinkActive="active" routerLink="home"
+          class="icon-dashboard"><mat-icon><span>
+              home
+            </span></mat-icon>Home</a>
+      </div>
+      <div class="icon-dashboard">
+        <a mat-list-item role="listitem" routerLinkActive="active" routerLink="post"
+          class="icon-dashboard"><mat-icon><span class="material-symbols-outlined">
+              post_add
+            </span></mat-icon>Post</a>
+      </div>
+      <div class="icon-dashboard">
+        <a mat-list-item role="listitem" routerLinkActive="active" routerLink="profilo"
+          class="icon-dashboard"><mat-icon><span class="material-symbols-outlined">
+              person
+            </span></mat-icon>Profilo</a>
+      </div>
+    </mat-list>
+
+  </mat-drawer>
+
+  <!-- mandiamo a schermo i vari componenti in base alla route -->
+  <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
+
+</mat-drawer-container>
+

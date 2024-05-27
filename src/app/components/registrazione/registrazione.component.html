@@ -1,0 +1,77 @@
+<!-- dashboard -->
+<mat-toolbar class="toolbar">
+  <img class="logo" src="../../../assets/building-svgrepo-com.svg" alt="">
+  <span class="scrittaLogo">VIVACITY</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button (click)="onNavigate()" class="example-icon"
+    aria-label="Example icon-button with subscribe icon">
+    <mat-icon><span class="material-symbols-outlined">
+        login
+      </span></mat-icon>
+  </button>
+</mat-toolbar>
+
+
+
+<h1 class="form"><strong>SIGN-UP</strong></h1>
+
+<!-- form registrazione -->
+<form class="form" [formGroup]="registrazioneForm" (ngSubmit)="onSubmit()">
+  <!-- nome -->
+  <mat-form-field appearance="fill">
+    <mat-label>NOME E COGNOME</mat-label>
+    <input matInput type="text" name="name" formControlName="name">
+    <p *ngIf="!registrazioneForm.get('name')?.valid && registrazioneForm.get('name')?.touched">Inserisci nome e cognome
+    </p>
+    <!-- genere -->
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>SELEZIONA GENERE</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+    </mat-select>
+    <p *ngIf="!registrazioneForm.get('gender')?.valid && registrazioneForm.get('gender')?.touched">Inserisci genere</p>
+  </mat-form-field>
+  <!-- email -->
+  <mat-form-field appearance="fill">
+    <mat-label>EMAIL</mat-label>
+    <input matInput type="email" name="email" formControlName="email">
+    <p *ngIf="!registrazioneForm.get('email')?.valid && registrazioneForm.get('email')?.touched">Inserisci email</p>
+  </mat-form-field>
+  <!-- stato -->
+  <mat-form-field>
+    <mat-label>SELEZIONA STATO</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="active">Active</mat-option>
+      <mat-option value="inactive">Inactive</mat-option>
+    </mat-select>
+    <p *ngIf="!registrazioneForm.get('status')?.valid && registrazioneForm.get('status')?.touched">Inserisci stato</p>
+  </mat-form-field>
+  <!-- password -->
+  <mat-form-field appearance="fill">
+    <mat-label>PASSWORD</mat-label>
+    <input matInput type="password" name="password" formControlName="password">
+    <p *ngIf="!registrazioneForm.get('password')?.valid && registrazioneForm.get('password')?.touched">Inserisci
+      password</p>
+  </mat-form-field>
+  <!-- token -->
+  <mat-form-field appearance="fill">
+    <mat-label>TOKEN</mat-label>
+    <input matInput type="password" name="auth_token" formControlName="auth_token">
+    <p *ngIf="!registrazioneForm.get('auth_token')?.valid && registrazioneForm.get('auth_token')?.touched">Inserisci
+      nome e cognome</p>
+  </mat-form-field>
+  <button mat-flat-button class="btn" type="submit" [disabled]="!registrazioneForm.valid">INVIA</button>
+  <!-- link login e token -->
+  <h4 class="login">Torna al <a [routerLink]="['/login']">Login</a></h4>
+  <h4>Se non hai il Token puoi richiederlo <a href="https://gorest.co.in/consumer/login" target="_blank">qui
+    </a>registrandoti!</h4>
+</form>
+
+<!-- footer -->
+<div class="footer">
+  <h3 class="nome">Developed by GM (Giorgio Marian) 2024</h3>
+  <h4 class="linkedin">Profilo LinkedIn <a href="https://www.linkedin.com/in/giorgio-marian" target="_blank">qui</a>
+  </h4>
+</div>

@@ -1,0 +1,142 @@
+.container {
+  display: grid;
+  place-items: center;
+}
+
+#bottoneAggiungiPost {
+  width: 250px;
+  background-color: #39ff14 !important;
+  transition: transform 0.3s ease-in-out;
+}
+
+#bottoneAggiungiPost:hover {
+  transform: scale(1.1);
+}
+
+.titoloLista {
+  margin-top: 2em;
+  text-decoration: underline;
+}
+
+.post {
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
+
+.bottoneOpzione {
+  display: flex;
+}
+
+.bottoneTitolo {
+  margin-left: 40px;
+  background-color: #014421 !important;
+  transition: transform 0.3s ease-in-out;
+}
+
+.bottoneTitolo:hover {
+  transform: scale(1.1);
+}
+
+.bottoneTesto {
+  margin-left: 10px;
+  background-color: #014421 !important;
+  transition: transform 0.3s ease-in-out;
+}
+
+.bottoneTesto:hover {
+  transform: scale(1.1);
+}
+
+.bottoneTitolo.selected {
+  background-color: #080808 !important;
+}
+
+.bottoneTesto.selected {
+  background-color: #080808 !important;
+}
+
+label {
+  display: block;
+  font: 1rem "Fira Sans", sans-serif;
+}
+
+.card {
+  margin: auto;
+  width: 80%;
+  margin-top: 1em;
+}
+
+.containerPosts {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.divCard {
+  width: 100%;
+}
+
+.nome {
+  margin-bottom: 1em;
+}
+
+.exemple-form {
+  min-width: 150px;
+  max-width: 800px;
+}
+
+.inputSearch {
+  width: 35%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.btnVisualizzaCommenti {
+  background-color: yellow !important;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+  transition: transform 0.3s ease-in-out;
+  width: 50%;
+  margin: auto;
+}
+
+.btnVisualizzaCommenti:hover {
+  transform: scale(1.1);
+}
+
+.line {
+  border-bottom: 1px solid black;
+}
+
+.noComments {
+  margin-left: 1em;
+}
+
+.form {
+  margin: auto;
+  width: 70%;
+}
+
+.footer {
+  margin-top: 1em;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: #009900;
+}
+
+h3 {
+  padding-top: 1em;
+}
+
+h4 {
+  padding-bottom: 1em;
+}
+
+.demo-paginator {
+  margin-top: 1em;
+  background-color: #014421;
+  color: white;
+}

@@ -1,0 +1,81 @@
+<!-- card profilo -->
+<div class="containerCard">
+  <h1>Buongiorno {{userRegistrazione.name}}, come stai oggi?</h1>
+  <mat-card class="cardProfilo">
+    <mat-card-header>
+      <!-- avatar utente in base al genere -->
+      <div *ngIf="userRegistrazione.gender == 'male'" mat-card-avatar class="example-header-image-man"></div>
+      <div *ngIf="userRegistrazione.gender == 'female'" mat-card-avatar class="example-header-image-woman"></div>
+      <mat-card-title> {{userRegistrazione.name}} </mat-card-title>
+      <mat-card-subtitle>{{userRegistrazione.status}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- immagine utente in base al genere -->
+    <div *ngIf="userRegistrazione.gender == 'male'"> <img
+        src="https://st4.depositphotos.com/9998432/22597/v/450/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg">
+    </div>
+    <div *ngIf="userRegistrazione.gender == 'female'"> <img
+        src="https://st4.depositphotos.com/9998432/24360/v/450/depositphotos_243600690-stock-illustration-person-gray-photo-placeholder-girl.jpg">
+    </div>
+    <!-- dettagli utente -->
+    <mat-card-content>
+      <h2>Dati Utente</h2>
+      <p><strong>Nome:</strong> {{userRegistrazione.name}}</p>
+      <p><strong>Email:</strong> {{userRegistrazione.email}}</p>
+      <p><strong>Genere:</strong> {{userRegistrazione.gender}}</p>
+      <p><strong>Auth_token:</strong> {{userRegistrazione.auth_token}}</p>
+      <p><strong>Id utente:</strong> {{userRegistrazione.id}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<!-- card post e commenti sottostanti -->
+<div class="containerPosts" *ngIf="posts.length>0; else noPosts">
+  <h1 class="titoloLista">I TUOI POST</h1>
+  <div class="divCard" *ngFor="let post of posts">
+    <mat-card class="cardPosts">
+      <mat-card-content>
+        <h1>{{post.title}}</h1>
+        <p>{{post.body}}</p>
+      </mat-card-content>
+
+      <!-- bottone visualizza commenti -->
+      <button class="btnVisualizzaCommenti" mat-flat-button (click)="caricaCommentiPost(post.id)">Visualizza
+        commenti</button>
+
+      <!-- sezione commenti -->
+      <div *ngIf="commenti[post.id]">
+        <div *ngIf="commenti[post.id].length > 0; else noComments">
+          <div *ngFor="let commento of commenti[post.id]">
+            <strong>{{commento.name}}: </strong>
+            {{commento.body}}
+          </div>
+        </div>
+
+        <!-- no comments -->
+        <ng-template #noComments>
+          <p class="noComments">Nessun commento disponibile!</p>
+        </ng-template>
+      </div>
+
+
+      <!-- form inserimento commenti -->
+      <form class="form" #commentoForm="ngForm" (ngSubmit)="onSubmit(post.id, commentoForm)">
+        <mat-form-field class="example-width">
+          <mat-label>Inserisci un commento</mat-label>
+          <input class="input" type="text" matInput name="commento" ngModel>
+          <button matSuffix mat-icon-button type="submit">
+            <mat-icon aria-label="Example icon-button with send icon">send</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </mat-card>
+  </div>
+
+</div>
+
+<!-- footer -->
+<div class="footer">
+  <h3>Developed by GM (Giorgio Marian) 2024</h3>
+  <h4>Profilo LinkedIn <a href="https://www.linkedin.com/in/giorgio-marian" target="_blank">qui</a></h4>
+</div>

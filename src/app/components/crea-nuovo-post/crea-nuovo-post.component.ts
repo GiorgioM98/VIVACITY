@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { User } from '../../modelli/user.model';
-import { UserRegistrazione } from '../../modelli/userRegistrazione.model';
+
 
 @Component({
   selector: 'app-crea-nuovo-post',
@@ -15,10 +15,11 @@ import { UserRegistrazione } from '../../modelli/userRegistrazione.model';
   styleUrl: './crea-nuovo-post.component.css',
 })
 export class CreaNuovoPostComponent implements OnInit {
-  user!: User;
-  userRegistrazione!: UserRegistrazione;
+
 
   creaNuovoPostForm!: FormGroup;
+
+  user!: User;
 
   constructor(
     public dialogRef: MatDialogRef<CreaNuovoPostComponent>,
@@ -44,10 +45,10 @@ export class CreaNuovoPostComponent implements OnInit {
     console.log(this.creaNuovoPostForm.value);
 
     // prendiamo user id dal local storage
-    const userRegistrazione = localStorage.getItem('userRegistrazione');
-    if (userRegistrazione) {
-      this.userRegistrazione = JSON.parse(userRegistrazione);
-      const utenteId = this.userRegistrazione.id;
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.user = JSON.parse(user);
+      const utenteId = this.user.id;
 
       // costruzione url
       const url = `https://gorest.co.in/public/v2/users/${utenteId}/posts`;

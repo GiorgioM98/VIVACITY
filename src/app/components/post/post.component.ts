@@ -5,7 +5,6 @@ import { NgForm } from '@angular/forms';
 import { User } from '../../modelli/user.model';
 import { MatDialog } from '@angular/material/dialog';
 import { CreaNuovoPostComponent } from '../crea-nuovo-post/crea-nuovo-post.component';
-import { UserRegistrazione } from '../../modelli/userRegistrazione.model';
 import { FormBuilder } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 
@@ -26,7 +25,7 @@ export class PostComponent implements OnInit {
   commenti: { [postId: number]: any[] } = {};
   post: any;
   user!: User;
-  userRegistrazione!: UserRegistrazione;
+  // user!: user;
   userName!: string;
   bottoneTitoloSelezionato = false;
   bottoneTestoSelezionato = false;
@@ -44,8 +43,7 @@ export class PostComponent implements OnInit {
   constructor(
     private goRest: GoRestService,
     private dialog: MatDialog,
-    private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.caricaListaPost();
@@ -112,17 +110,17 @@ export class PostComponent implements OnInit {
       return;
     }
 
-    if(typeof localStorage !== 'undefined') {
+    if (typeof localStorage !== 'undefined') {
       //url con id post
       const url = `https://gorest.co.in/public/v2/posts/${postId}/comments`;
 
       //prendiamo nome e email utente dal local storage
-      const userRegistrazione = localStorage.getItem('userRegistrazione');
-      this.userRegistrazione = JSON.parse(userRegistrazione!);
+      const user = localStorage.getItem('user');
+      this.user = JSON.parse(user!);
 
       const commentData = {
-        name: this.userRegistrazione.name,
-        email: this.userRegistrazione.email,
+        name: this.user.name,
+        email: this.user.email,
         body: commentoForm.value.commento,
       };
 
@@ -137,7 +135,7 @@ export class PostComponent implements OnInit {
           console.error('Errore invio commento', error);
         }
       );
-    }else{
+    } else {
       console.error('dati utente mancanti nel local storage, rifare la registrazione');
       return;
     }

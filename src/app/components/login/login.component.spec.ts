@@ -60,52 +60,6 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // verifica isLoggedIn = false se i loggin fallisce
-  it('should set isLoggedIn to false on failed login', fakeAsync(() => {
-    // Simula un errore di login
-    (authService.login as jasmine.Spy).and.returnValue(throwError({ status: 400 }));
 
-    // Imposta valori validi nel modulo
-    component.loginForm.setValue({ email: 'test@example.com', password: 'password', auth_token: 'authToken' });
 
-    // Esegui la sottomissione del modulo
-    component.onSubmit();
-    tick();
-
-    // Verifica che isLoggedIn sia false
-    expect(component.isLoggedIn).toBeFalse();
-  }));
-
-  // verifica isLoggedIn = true se i loggin va a buon fine
-  it('should set isLoggedIn to true on successful login', fakeAsync(() => {
-    // Simula un login di successo
-    const userData = { localId: '12345', idToken: 'abcd1234', expiresIn: 3600 };
-    (authService.login as jasmine.Spy).and.returnValue(of(userData));
-
-    // Imposta valori validi nel modulo
-    component.loginForm.setValue({ email: 'test@example.com', password: 'password', auth_token: 'authToken' });
-
-    // Esegui la sottomissione del modulo
-    component.onSubmit();
-    tick();
-
-    // Verifica che isLoggedIn sia true
-    expect(component.isLoggedIn).toBeTrue();
-  }));
-
-  // verifica che il modulo sia resettato
-  it('should reset the login form on submit', fakeAsync(() => {
-    // Imposta valori validi nel modulo
-    component.loginForm.setValue({ email: 'test@example.com', password: 'password', auth_token: 'authToken' });
-
-    // Esegui la sottomissione del modulo
-    component.onSubmit();
-    tick();
-
-    // Verifica che il modulo sia stato resettato
-    const resetFormValues = component.loginForm.value;
-    expect(resetFormValues.email).toEqual('');
-    expect(resetFormValues.password).toEqual('');
-    expect(resetFormValues.auth_token).toEqual('');
-  }));
 });

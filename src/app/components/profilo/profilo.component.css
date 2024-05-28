@@ -83,6 +83,7 @@ h2 {
 
 .footer {
   margin-top: 1em;
+  margin-bottom: -2em !important;
   text-align: center;
   color: white;
   font-weight: bold;

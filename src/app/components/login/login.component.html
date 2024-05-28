@@ -24,12 +24,6 @@
     <p *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched">Inserisci email</p>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>PASSWORD</mat-label>
-    <input matInput type="password" name="password" formControlName="password">
-    <!-- errore nel caso in cui la password non sia valida o il form sia stato toccato -->
-    <p *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">Inserisci la password</p>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
     <mat-label>TOKEN</mat-label>
     <input matInput type="password" name="auth_token" formControlName="auth_token">
     <!-- errore nel caso in cui il token non sia valida o il form sia stato toccato -->

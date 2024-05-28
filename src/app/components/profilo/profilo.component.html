@@ -1,29 +1,29 @@
 <!-- card profilo -->
 <div class="containerCard">
-  <h1>Buongiorno {{userRegistrazione.name}}, come stai oggi?</h1>
+  <h1>Buongiorno {{user.name}}, come stai oggi?</h1>
   <mat-card class="cardProfilo">
     <mat-card-header>
       <!-- avatar utente in base al genere -->
-      <div *ngIf="userRegistrazione.gender == 'male'" mat-card-avatar class="example-header-image-man"></div>
-      <div *ngIf="userRegistrazione.gender == 'female'" mat-card-avatar class="example-header-image-woman"></div>
-      <mat-card-title> {{userRegistrazione.name}} </mat-card-title>
-      <mat-card-subtitle>{{userRegistrazione.status}}</mat-card-subtitle>
+      <div *ngIf="user.gender == 'male'" mat-card-avatar class="example-header-image-man"></div>
+      <div *ngIf="user.gender == 'female'" mat-card-avatar class="example-header-image-woman"></div>
+      <mat-card-title> {{user.name}} </mat-card-title>
+      <mat-card-subtitle>{{user.status}}</mat-card-subtitle>
     </mat-card-header>
     <!-- immagine utente in base al genere -->
-    <div *ngIf="userRegistrazione.gender == 'male'"> <img
+    <div *ngIf="user.gender == 'male'"> <img
         src="https://st4.depositphotos.com/9998432/22597/v/450/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg">
     </div>
-    <div *ngIf="userRegistrazione.gender == 'female'"> <img
+    <div *ngIf="user.gender == 'female'"> <img
         src="https://st4.depositphotos.com/9998432/24360/v/450/depositphotos_243600690-stock-illustration-person-gray-photo-placeholder-girl.jpg">
     </div>
     <!-- dettagli utente -->
     <mat-card-content>
       <h2>Dati Utente</h2>
-      <p><strong>Nome:</strong> {{userRegistrazione.name}}</p>
-      <p><strong>Email:</strong> {{userRegistrazione.email}}</p>
-      <p><strong>Genere:</strong> {{userRegistrazione.gender}}</p>
-      <p><strong>Auth_token:</strong> {{userRegistrazione.auth_token}}</p>
-      <p><strong>Id utente:</strong> {{userRegistrazione.id}}</p>
+      <p><strong>Nome:</strong> {{user.name}}</p>
+      <p><strong>Email:</strong> {{user.email}}</p>
+      <p><strong>Genere:</strong> {{user.gender}}</p>
+      <p><strong>Auth_token:</strong> {{user.auth_token}}</p>
+      <p><strong>Id utente:</strong> {{user.id}}</p>
     </mat-card-content>
   </mat-card>
 </div>

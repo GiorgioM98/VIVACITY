@@ -1,9 +1,9 @@
-import { Component, Inject, OnInit, TemplateRef } from '@angular/core';
+import { Component, Inject, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { GoRestService } from '../../servizi/go-rest.service';
 import { NgIfContext } from '@angular/common';
 import { NgForm } from '@angular/forms';
-import { UserRegistrazione } from '../../modelli/userRegistrazione.model';
+import { User } from '../../modelli/user.model';
 
 @Component({
   selector: 'app-dettagli-utente',
@@ -12,16 +12,16 @@ import { UserRegistrazione } from '../../modelli/userRegistrazione.model';
 })
 export class DettagliUtenteComponent implements OnInit {
 
+  @ViewChild('commentoForm')
+  commentoForm!: NgForm;
 
-    commentoForm!: NgForm;
-    noPosts!: TemplateRef<NgIfContext<boolean>> | null;
-    noComments!: TemplateRef<NgIfContext<boolean | 0 | undefined>> | null;
-    posts: any[] = [];
-    postId!: number;
-    commenti: { [postId: number]: any[] } = {};
-    post: any;
-    userRegistrazione!: UserRegistrazione;
-    userRegistrazioneName!: string;
+  noPosts!: TemplateRef<NgIfContext<boolean>> | null;
+  noComments!: TemplateRef<NgIfContext<boolean | 0 | undefined>> | null;
+  posts: any[] = [];
+  postId!: number;
+  commenti: { [postId: number]: any[] } = {};
+  post: any;
+  user!: User;
 
 
   constructor(
@@ -32,7 +32,7 @@ export class DettagliUtenteComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
     public data: any,
     private goRest: GoRestService
-  ) {}
+  ) { }
 
 
 
@@ -72,21 +72,21 @@ export class DettagliUtenteComponent implements OnInit {
     const url = `https://gorest.co.in/public/v2/posts/${postId}/comments`;
 
     // prendiamo nome e email utente dal local storage
-    if(typeof localStorage !== 'undefined') {
-      const userRegistrazione = localStorage.getItem('userRegistrazione');
-      this.userRegistrazione = JSON.parse(userRegistrazione!);
-    }else {
+    if (typeof localStorage !== 'undefined') {
+      const user = localStorage.getItem('user');
+      this.user = JSON.parse(user!);
+    } else {
       console.error('local storage non definito');
     }
 
-    if(!this.userRegistrazione || !this.userRegistrazione.name || !this.userRegistrazione.email) {
+    if (!this.user || !this.user.name || !this.user.email) {
       console.error('dati utente mancanti nel local storage, rifare la registrazione');
       return;
     }
 
     const commentData = {
-      name: this.userRegistrazione.name,
-      email: this.userRegistrazione.email,
+      name: this.user.name,
+      email: this.user.email,
       body: commentoForm.value.commento,
     };
 
@@ -96,10 +96,11 @@ export class DettagliUtenteComponent implements OnInit {
         console.log('commento inviato', data);
         // ricarica pagina
         this.caricaCommentiPost(postId);
-        if(this.commentoForm) {
+        if (this.commentoForm) {
           this.commentoForm.resetForm();
-        }else {
-          console.error('commento form non e di tipo ngForm');
+          // this.commentoForm.resetForm();
+        } else {
+          console.error('errore reset form');
         }
 
       },

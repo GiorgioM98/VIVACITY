@@ -48,13 +48,6 @@
     </mat-select>
     <p *ngIf="!registrazioneForm.get('status')?.valid && registrazioneForm.get('status')?.touched">Inserisci stato</p>
   </mat-form-field>
-  <!-- password -->
-  <mat-form-field appearance="fill">
-    <mat-label>PASSWORD</mat-label>
-    <input matInput type="password" name="password" formControlName="password">
-    <p *ngIf="!registrazioneForm.get('password')?.valid && registrazioneForm.get('password')?.touched">Inserisci
-      password</p>
-  </mat-form-field>
   <!-- token -->
   <mat-form-field appearance="fill">
     <mat-label>TOKEN</mat-label>

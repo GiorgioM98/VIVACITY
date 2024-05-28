@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
-import { UserRegistrazione } from './modelli/userRegistrazione.model';
+
 
 
 @Component({
@@ -9,20 +9,21 @@ import { UserRegistrazione } from './modelli/userRegistrazione.model';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+
   title = 'Vivacity';
 
   loading: boolean = true;
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService) { }
 
 
   ngOnInit(): void {
-    //imposta il local storage con i dati dell'utente registrato
-    if(localStorage.getItem('userRegistrazione')){
-      const userRegistrazione= JSON.parse(localStorage.getItem('userRegistrazione')!)
-      this.authService.createUserRegistrazione(userRegistrazione.name, userRegistrazione.gender, userRegistrazione.email, userRegistrazione.status, userRegistrazione.auth_token, userRegistrazione.id)
+    //prende i dati dal local storage con i dati dell'utente loggato
+    if (localStorage.getItem('user')) {
+      const user = JSON.parse(localStorage.getItem('user')!)
+      this.authService.createUser(user.name, user.gender, user.email, user.status, user.auth_token, user.id)
+    }
   }
-}
 }
 
 

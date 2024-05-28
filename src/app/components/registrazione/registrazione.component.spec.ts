@@ -4,7 +4,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RegistrazioneComponent } from './registrazione.component';
 import { AuthService } from '../../auth/auth.service';
 import { GoRestService } from '../../servizi/go-rest.service';
-import { of, throwError } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -67,7 +66,6 @@ describe('RegistrazioneComponent', () => {
       gender: 'male',
       email: 'john.doe@example.com',
       status: 'active',
-      password: 'password',
       auth_token: 'token123'
     });
 
@@ -81,7 +79,6 @@ describe('RegistrazioneComponent', () => {
       gender: '',
       email: '',
       status: '',
-      password: '',
       auth_token: ''
     });
 

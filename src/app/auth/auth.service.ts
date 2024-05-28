@@ -8,12 +8,7 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  // end point e api key per registrazione su firebase
-  // API_KEY = 'AIzaSyBq_esU5MEoffF268SXITOie42ovTsJCEs';
-  // signInUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.API_KEY}`;
-  // signUpUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.API_KEY}`;
 
-  // userRegistrazione: UserRegistrazione | undefined;
 
   urlRegistrazione = 'https://gorest.co.in/public/v2/users';
 
@@ -34,7 +29,7 @@ export class AuthService {
     const headers = {
       Authorization: `Bearer ${auth_token}`,
     };
-    return this.http.post(this.urlRegistrazione, body, { headers }).pipe( tap(() => {
+    return this.http.post(this.urlRegistrazione, body, { headers }).pipe(tap(() => {
       this.router.navigate(['/login']);
     }));
   }

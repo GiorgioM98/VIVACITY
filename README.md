@@ -96,7 +96,8 @@ L'applicazione si interfaccia con l'API di GoRest per fornire funzionalità di g
   - Endpoint: `/v2/users`
   - Descrizione: Registra un nuovo utente.
 
-### Profilo Utente
+
+### Home
 
 - **Trova tutti gli utenti:**
 
@@ -110,10 +111,6 @@ L'applicazione si interfaccia con l'API di GoRest per fornire funzionalità di g
   - Endpoint: `/v2/users/:userId`
   - Descrizione: Cancella un utente dato il suo ID.
 
-- **Modifica il profilo utente:**
-  - Metodo: `PUT`
-  - Endpoint: `/v2/users/:userId`
-  - Descrizione: Modifica il profilo di un utente.
 
 ### Post
 
